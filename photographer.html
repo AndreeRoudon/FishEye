@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header class="header">
+    <img src="assets/images/logo.png" class="header__logo" />
+  </header>
+
+  <main id="main">
+    <div class="photograph-header">
+      <div class="photograph-header__infos"></div>
+      <button class="photograph-header__button" onclick="displayModal()">Contactez-moi</button>
+      <div class="photograph-header__images"></div>
+    </div>
+  </main>
+
+  <div id="contact_modal">
+    <div class="modal">
+      <header class="modal__heading">
+        <h2 class="modal__heading--title">Contactez-moi</h2>
+        <img class="modal__heading--img" src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form class="form">
+        <div class="form__Data">
+          <label class="form__label" for="first">Prénom</label>
+          <input class="form__input text-control" type="text" id="first" name="first" />
+        </div>
+        <div class="form__Data">
+          <label class="form__label" for="last">Nom</label>
+          <input class="form__input text-control" type="text" id="last" name="last" />
+        </div>
+        <div class="form__Data">
+          <label class="form__label" for="email">Email</label>
+          <input class="form__input text-control" type="email" id="email" name="Email" />
+        </div>
+        <div class="form__Data">
+          <label class="form__label" for="last">Votre message</label>
+          <textarea class="form__message text-control"></textarea>
+        </div>
+        <button class="form__boutton">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

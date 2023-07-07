@@ -1,27 +1,31 @@
-#contact_modal {
-    display: none;
-}
-
 .photograph-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    &__button{
+        @include btn-photograph;
+    }
 }
 
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+#contact_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #C4C4C466;
 }
 
 .modal {
+    position: relative;
+    margin: 2% auto;
+    overflow: hidden;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -30,47 +34,65 @@
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    &__heading{
+        justify-content: space-between;
+        width: 100%;
+        &--img{
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            cursor: pointer;
+        }
+        &--title{
+            font-size: 64px;
+            font-weight: normal;
+            text-align: center;
+        }
+    }
 }
 
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
-    cursor: pointer;
-}
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
+.form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
-}
 
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
+    &__Data {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-bottom: 26px;
+    }
 
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
+    &__label {
+        color: #312E2E;
+        font-size: 36px;
+    }
 
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+    &__input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        padding: 0 15px;
+        color: #901C1C;
+        outline: none;
+    }
+
+    &__message{
+        height: 170px;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 24px;
+        padding: 15px;
+        color: #901C1C;
+        outline: none;
+        resize: none;
+    }
+    
+    &__boutton{
+        @include btn-photograph;
+    }
 }
