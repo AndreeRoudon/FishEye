@@ -6,19 +6,40 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/af16f6d87d.js" crossorigin="anonymous"></script>
   <title>Fisheye - photographe </title>
 </head>
 
 <body>
   <header class="header">
-    <img src="assets/images/logo.png" class="header__logo" />
+    <a href="index.html"><img src="assets/images/logo.png" class="header__logo"></a>
   </header>
 
   <main id="main">
     <div class="photograph-header">
-      <div class="photograph-header__infos"></div>
+      <div class="photograph-header__description" id="description"></div>
       <button class="photograph-header__button" onclick="displayModal()">Contactez-moi</button>
-      <div class="photograph-header__images"></div>
+      <div class="photograph-header__images" id="images"></div>
+    </div>
+    <div class="photograph-body">
+      <div class="photograph-body__sort">
+        <h3 class="photograph-body__title"> Trier par </h3>
+        <select class="photograph-body__select">
+          <option class="photograph-body__option">Popularité</option>
+          <option class="photograph-body__option">Date</option>
+          <option class="photograph-body__option">Titre</option>
+        </select>
+      </div>
+      <div class="photograph-body__gallery" id="gallery">
+        <!-- Gallery -->
+      </div>
+      <div class="photograph-body__infos">
+        <div class="photograph-body__likes">
+          <span id="likes"></span>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="photograph-body__price" id="price"></div>
+      </div>
     </div>
   </main>
 
@@ -49,7 +70,6 @@
       </form>
     </div>
   </div>
-
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
 </body>

@@ -14,6 +14,10 @@ body {
   gap: 70px;
   margin-top: 100px;
 }
+.photographer_section a {
+  text-decoration: none;
+  cursor: default;
+}
 .photographer_section article {
   justify-self: center;
   display: flex;
@@ -43,6 +47,7 @@ body {
   font-size: 10px;
   font-weight: 400;
   line-height: 13px;
+  color: black;
 }
 .photographer_section article span {
   color: #757575;
@@ -54,10 +59,33 @@ body {
 .photograph-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
+}
+.photograph-header__description h2 {
+  color: #D3573C;
+  font-size: 64px;
+  line-height: 84px;
+}
+.photograph-header__description h3 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #901C1C;
+}
+.photograph-header__description p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: black;
+}
+.photograph-header__description span {
+  color: #757575;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 12px;
 }
 .photograph-header__button {
   font-size: 20px;
@@ -70,6 +98,74 @@ body {
   background-color: #901C1C;
   border-radius: 5px;
   cursor: pointer;
+}
+.photograph-header__images img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.photograph-body {
+  margin: 40px 100px;
+}
+.photograph-body__sort {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.photograph-body__select {
+  border: none;
+  outline: none;
+  background: #901C1C;
+  color: white;
+  padding: 10px;
+}
+.photograph-body__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+  margin: 50px 0 100px;
+}
+.photograph-body__gallery article img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.photograph-body__gallery article div {
+  display: flex;
+  justify-content: space-between;
+  color: #901C1C;
+}
+.photograph-body__gallery article p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.photograph-body__gallery article h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.photograph-body__gallery article video {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+.photograph-body__infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  right: 5vw;
+  width: 270px;
+  height: 60px;
+  background-color: #DB8876;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 #contact_modal {

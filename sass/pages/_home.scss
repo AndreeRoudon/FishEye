@@ -3,12 +3,17 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
+    a{
+        text-decoration: none;
+        cursor: default;
+    }
     article{
         justify-self: center;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
         h2 {
             margin-top: 20px;
             color: #D3573C;
@@ -31,6 +36,7 @@
             font-size: 10px;
             font-weight: 400;
             line-height: 13px;
+            color: black;
         }
         span {
             color: #757575;
