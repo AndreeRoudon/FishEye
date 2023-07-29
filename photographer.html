@@ -22,14 +22,28 @@
       <div class="photograph-header__images" id="images"></div>
     </div>
     <div class="photograph-body">
+
       <div class="photograph-body__sort">
         <h3 class="photograph-body__title"> Trier par </h3>
-        <select class="photograph-body__select">
-          <option class="photograph-body__option">Popularité</option>
-          <option class="photograph-body__option">Date</option>
-          <option class="photograph-body__option">Titre</option>
-        </select>
+        <div class="photograph-body__filterContainer">
+          <div class="filter-select">
+            <a href="#" role="button" class="filter-select__trigger" aria-controls="filter-options"
+              aria-haspopup="listbox" aria-label="Trier par">
+              <span>Popularité</span>
+              <div class="filter-select__arrow"></div>
+            </a>
+            <div class="filter-select__options" role="listbox" id="filter-options">
+              <a href="#" class="filter-option selected" data-value="Popularité" aria-selected="true"
+                aria-label="Trier par popularité" role="option">Popularité</a>
+              <a href="#" class="filter-option" data-value="Date" aria-selected="false" aria-label="Trier par date"
+                role="option">Date</a>
+              <a href="#" class="filter-option" data-value="Titre" aria-selected="false" aria-label="Trier par titre"
+                role="option">Titre</a>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="photograph-body__gallery" id="gallery">
         <!-- Gallery -->
       </div>
@@ -45,7 +59,7 @@
           <div class="js-arrow-right"></div>
         </div>
       </div>
-      
+
       <div class="photograph-body__infos">
         <div class="photograph-body__likes">
           <span id="likes"></span>

@@ -114,12 +114,85 @@ body {
   align-items: center;
   gap: 30px;
 }
-.photograph-body__select {
-  border: none;
-  outline: none;
-  background: #901C1C;
+.photograph-body__filterContainer {
+  position: relative;
+  padding: 20px 25px;
+  background-color: #901C1C;
+  border-radius: 5px;
+}
+.photograph-body__filterContainer a {
+  text-decoration: none;
   color: white;
-  padding: 10px;
+}
+.photograph-body__filterContainer .filter-select {
+  height: 100%;
+  cursor: pointer;
+}
+.photograph-body__filterContainer .filter-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+  font-size: 18px;
+  font-weight: 700;
+}
+.photograph-body__filterContainer .filter-select__arrow {
+  position: relative;
+  bottom: 5px;
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  transform: rotate(135deg);
+}
+.photograph-body__filterContainer .filter-select .open {
+  display: flex;
+}
+.photograph-body__filterContainer .filter-select__options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #901C1C;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+.photograph-body__filterContainer .filter-select__options .filter-option {
+  padding: 20px 25px;
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+}
+.photograph-body__filterContainer .filter-select__options .filter-option:before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  margin: 0 10%;
+  height: 1px;
+  background: white;
+  bottom: 0;
+  left: 0;
+}
+.photograph-body__filterContainer .filter-select__options .filter-option:last-child:before {
+  content: none;
+}
+.photograph-body__filterContainer .filter-select__options .selected {
+  display: flex;
+  align-items: center;
+}
+.photograph-body__filterContainer .filter-select__options .selected:after {
+  content: "";
+  position: relative;
+  left: 20px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  transform: rotate(-45deg);
 }
 .photograph-body__gallery {
   display: grid;
@@ -155,6 +228,7 @@ body {
   height: 300px;
   width: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 .photograph-body .bg-box {
   display: none;

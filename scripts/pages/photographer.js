@@ -1,3 +1,5 @@
+let medias = [];
+
 async function getPhotographerDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const photographerID = parseInt(urlParams.get('id'));
@@ -8,12 +10,12 @@ async function getPhotographerDetails() {
   const photographer = data.photographers.find((p) => p.id === parseInt(photographerID));
   console.log(photographer);
 
-  const media = data.media.filter((m) => m.photographerId === parseInt(photographerID));
-  console.log(media);
+  medias = data.media.filter((m) => m.photographerId === parseInt(photographerID));
+  console.log(medias);
 
   photographerInfo(photographer);
-  displayMediaGallery(media);
-  displayLikesCount(media);
+  displayMediaGallery(medias);
+  displayLikesCount(medias);
 }
 
 /***************************************************************************************/
@@ -147,7 +149,7 @@ function closelightBox() {
   lightBox.style.display = "none";
 }
 
-//Fonction pour la création de chaque image 
+//Fonction pour la création de chaque image
 function createMediaElement(media, index) {
   const mediaElement = document.createElement('article');
 
@@ -194,7 +196,7 @@ function createMediaElement(media, index) {
       mediaLikes.textContent = media.likes;
 
       // Mettre à jour le nombre total de likes
-      displayLikesCount(media)
+      displayLikesCount(medias);
     }
   });
 
@@ -221,5 +223,43 @@ function displayLikesCount(media) {
   }
   likes.textContent = nbLikes;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const trigger = document.querySelector(".filter-select__trigger");
+  const options = document.querySelector(".filter-select__options");
+  const optionLinks = document.querySelectorAll(".filter-option");
+
+  // Fonction pour ouvrir ou fermer la liste déroulante
+  function toggleOptions() {
+    options.classList.toggle("open");
+  }
+  
+  // Fonction pour mettre à jour le contenu du déclencheur avec l'option sélectionnée
+  function updateTriggerContent(selectedOption) {
+    trigger.querySelector("span").textContent = selectedOption;
+  }
+/*
+  // Fonction pour trier les images en fonction de l'option sélectionnée
+  function sortImages(option) {
+    
+    si l'option est "Popularité", triez les images par popularité, etc.
+    console.log("Option sélectionnée:", option);
+  }
+*/
+  // Gestionnaire d'événement pour le clic sur l'élément déclencheur
+  trigger.addEventListener("click", toggleOptions);
+
+  // Gestionnaire d'événement pour le clic sur une option
+  optionLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const selectedOption = this.getAttribute("data-value");
+      updateTriggerContent(selectedOption);
+
+      // Fermer la liste déroulante après avoir sélectionné une option
+      toggleOptions();
+    });
+  });
+});
 
 getPhotographerDetails();

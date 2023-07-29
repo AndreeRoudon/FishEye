@@ -50,12 +50,87 @@
         align-items: center;
         gap: 30px;
     }
-    &__select{
-        border: none;
-        outline: none;
-        background: #901C1C;
-        color: white;
-        padding: 10px;
+    &__filterContainer{
+        position: relative;
+        padding: 20px 25px;
+        background-color: #901C1C;
+        
+        border-radius: 5px;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .filter-select{
+            height: 100%;
+            cursor: pointer;
+            &__trigger{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                height: 100%;
+                font-size: 18px;
+                font-weight: 700;
+            }
+            &__arrow{
+                position: relative;
+                bottom: 5px;
+                width: 15px;
+                height: 15px;
+                border-top: 3px solid white;
+                border-right: 3px solid white;
+                transform: rotate(135deg);
+            }
+            .open{
+                display: flex;
+            }
+            &__options{
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #901C1C;
+                display: none; // Open remplacera par flex
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                border-radius: 5px;
+                
+                .filter-option{
+                    padding: 20px 25px;
+                    position: relative;
+                    font-size: 18px;
+                    font-weight: 700;
+                    &:before{
+                        content:'';
+                        position: absolute;
+                        width: 80%;
+                        margin: 0 10%;
+                        height: 1px;
+                        background: white;
+                        bottom: 0;
+                        left: 0;
+                    }
+                    &:last-child:before{
+                        content: none;
+                    }
+                }
+                .selected{
+                    display: flex;
+                    align-items: center;
+                    &:after{
+                        content: '';
+                        position: relative;
+                        left: 20px;
+                        top: 5px;
+                        width: 12px;
+                        height: 12px;
+                        border-top: 3px solid white;
+                        border-right: 3px solid white;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
     }
     &__gallery{
         display: grid;
@@ -92,6 +167,7 @@
                 height: 300px;
                 width: 100%;
                 object-fit: cover;
+                cursor: pointer;
             }
         }
     }
