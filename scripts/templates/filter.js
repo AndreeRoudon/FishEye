@@ -3,13 +3,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = document.querySelector(".filter-select__options");
     const optionLinks = document.querySelectorAll(".filter-option");
     let currentSortCriteria = "Popularité"; // Par défaut, trier par popularité
-
+    
     // Appeler la fonction de tri initial
     sortMedia(currentSortCriteria);
-
+    
+    const arrow = document.querySelector(".arrow");
     // Fonction pour ouvrir ou fermer la liste déroulante
     function toggleOptions() {
         options.classList.toggle("open");
+        if (options.classList.contains("open")) {
+            arrow.style.transform = "rotate(-45deg)";
+            arrow.style.bottom = "-3px";
+        } else {
+            arrow.style.transform = "rotate(135deg)";
+            arrow.style.bottom = "3px";
+        }
     }
 
     // Fonction pour trier les médias en fonction des critères sélectionnés

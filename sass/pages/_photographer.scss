@@ -52,18 +52,18 @@
 .photograph-body {
     margin: 40px 100px;
 
-    &__title{
+    &__title {
         font-size: 18px;
         font-weight: 700;
     }
-    
-    &__sort{
+
+    &__sort {
         display: flex;
         align-items: center;
         gap: 30px;
     }
-    
-    &__filterContainer{
+
+    &__filterContainer {
         position: relative;
         height: 70px;
         padding: 0 25px;
@@ -71,14 +71,17 @@
         border-radius: 5px;
         width: 170px;
         z-index: 1;
-        a{
+
+        a {
             text-decoration: none;
             color: white;
         }
-        .filter-select{
+
+        .filter-select {
             height: 100%;
             cursor: pointer;
-            &__trigger{
+
+            &__trigger {
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -87,7 +90,8 @@
                 font-size: 18px;
                 font-weight: 700;
             }
-            &__arrow{
+
+            &__arrow {
                 position: relative;
                 bottom: 3px;
                 width: 12px;
@@ -96,7 +100,8 @@
                 border-right: 3px solid white;
                 transform: rotate(135deg);
             }
-            &__options{
+
+            &__options {
                 position: absolute;
                 top: 63px;
                 left: 0;
@@ -106,14 +111,15 @@
                 gap: 10px;
                 width: 100%;
                 border-radius: 5px;
-                
-                .filter-option{
+
+                .filter-option {
                     padding: 20px 25px;
                     position: relative;
                     font-size: 18px;
                     font-weight: 700;
-                    &:before{
-                        content:'';
+
+                    &:before {
+                        content: '';
                         position: absolute;
                         width: 80%;
                         margin: 0 10%;
@@ -124,13 +130,15 @@
                     }
                 }
             }
-            .open{
+
+            .open {
                 display: flex;
             }
-            .selected{
+
+            .selected {
                 display: none;
             }
-        }  
+        }
     }
 
     &__gallery {
@@ -140,6 +148,7 @@
         margin: 50px 0 100px;
         position: relative;
         z-index: 0;
+
         article {
             img {
                 height: 300px;
@@ -182,13 +191,23 @@
     .bg-box {
         display: none;
         position: fixed;
-        z-index: 1;
+        z-index: 2;
         top: 0;
         left: 0;
         height: 100%;
         width: 100%;
         overflow: auto;
-        background-color: #C4C4C466;
+        background-color: rgba(196, 196, 196, 0.9);
+        &__description{
+            position: absolute;
+            bottom: 5vh;
+            left: 10vw;
+            &--title{
+                font-size: 24px;
+                font-weight: 400;
+                color: #901C1C;
+            }
+        }
     }
 
     .lightBox {

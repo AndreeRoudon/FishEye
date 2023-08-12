@@ -40,12 +40,14 @@ function photographerInfo(photographer) {
   const priceText = document.createElement('span');
   priceText.textContent = photographer.price + '€ / jour';
 
-
   description.appendChild(photographerName);
   description.appendChild(localisation);
   description.appendChild(tagline);
   price.appendChild(priceText);
   images.appendChild(img);
+
+  const namePhotograph = document.querySelector(".contact-name");
+  namePhotograph.textContent = photographer.name;
 }
 
 function createHeadingElement(tagName, text) {
@@ -138,7 +140,8 @@ function openLightbox(media, startIndex) {
       slideImageGallery.appendChild(video);
     }
 
-    console.log(index);
+    const LightBoxTitle = document.querySelector(".lightBox-title");
+    LightBoxTitle.textContent = mediaItem.title;
   }
 }
 
@@ -200,7 +203,7 @@ function createMediaElement(media, index) {
       // Mettre à jour le nombre total de likes
       displayLikesCount(medias);
     }
-    else if(media.liked){
+    else if (media.liked) {
       media.liked = false;
       media.likes--;
       mediaLikes.textContent = media.likes;
