@@ -60,6 +60,9 @@ function createHeadingElement(tagName, text) {
 function displayMediaGallery(media) {
   const gallery = document.getElementById('gallery');
 
+  // Supprimer tous les éléments existants de la galerie
+  gallery.innerHTML = '';
+
   media.forEach((m, index) => {
     const mediaElement = createMediaElement(m, index);
     gallery.appendChild(mediaElement);
@@ -186,13 +189,20 @@ function createMediaElement(media, index) {
   const heartIcon = document.createElement('i');
   heartIcon.classList.add('fa-solid', 'fa-heart');
 
-
   // Gestionnaire d'événement pour le clic sur l'icône de like
   heartIcon.addEventListener('click', () => {
     // Vérifier si l'utilisateur n'a pas déjà liké la photo
     if (!media.liked) {
       media.liked = true;
       media.likes++;
+      mediaLikes.textContent = media.likes;
+
+      // Mettre à jour le nombre total de likes
+      displayLikesCount(medias);
+    }
+    else if(media.liked){
+      media.liked = false;
+      media.likes--;
       mediaLikes.textContent = media.likes;
 
       // Mettre à jour le nombre total de likes
@@ -223,43 +233,5 @@ function displayLikesCount(media) {
   }
   likes.textContent = nbLikes;
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  const trigger = document.querySelector(".filter-select__trigger");
-  const options = document.querySelector(".filter-select__options");
-  const optionLinks = document.querySelectorAll(".filter-option");
-
-  // Fonction pour ouvrir ou fermer la liste déroulante
-  function toggleOptions() {
-    options.classList.toggle("open");
-  }
-  
-  // Fonction pour mettre à jour le contenu du déclencheur avec l'option sélectionnée
-  function updateTriggerContent(selectedOption) {
-    trigger.querySelector("span").textContent = selectedOption;
-  }
-/*
-  // Fonction pour trier les images en fonction de l'option sélectionnée
-  function sortImages(option) {
-    
-    si l'option est "Popularité", triez les images par popularité, etc.
-    console.log("Option sélectionnée:", option);
-  }
-*/
-  // Gestionnaire d'événement pour le clic sur l'élément déclencheur
-  trigger.addEventListener("click", toggleOptions);
-
-  // Gestionnaire d'événement pour le clic sur une option
-  optionLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      const selectedOption = this.getAttribute("data-value");
-      updateTriggerContent(selectedOption);
-
-      // Fermer la liste déroulante après avoir sélectionné une option
-      toggleOptions();
-    });
-  });
-});
 
 getPhotographerDetails();
