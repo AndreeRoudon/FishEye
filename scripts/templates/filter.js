@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = document.querySelector(".filter-select__options");
     const optionLinks = document.querySelectorAll(".filter-option");
     let currentSortCriteria = "Popularité"; // Par défaut, trier par popularité
-    
+
     // Appeler la fonction de tri initial
     sortMedia(currentSortCriteria);
-    
+
     const arrow = document.querySelector(".arrow");
     // Fonction pour ouvrir ou fermer la liste déroulante
     function toggleOptions() {
@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
             medias.sort((a, b) => a.title.localeCompare(b.title));
         } else if (criteria === "Popularité") {
             medias.sort((a, b) => b.likes - a.likes);
-            console.log(criteria);
         } else if (criteria === "Date") {
             medias.sort((a, b) => new Date(b.date) - new Date(a.date));
         }

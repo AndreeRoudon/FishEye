@@ -8,10 +8,8 @@ async function getPhotographerDetails() {
   const data = await response.json();
 
   const photographer = data.photographers.find((p) => p.id === parseInt(photographerID));
-  console.log(photographer);
 
   medias = data.media.filter((m) => m.photographerId === parseInt(photographerID));
-  console.log(medias);
 
   photographerInfo(photographer);
   displayMediaGallery(medias);
@@ -231,7 +229,6 @@ function displayLikesCount(media) {
   let nbLikes = 0;
   for (let i = 0; i < media.length; i++) {
     let like = media[i].likes;
-    console.log(like);
     nbLikes = nbLikes + like;
   }
   likes.textContent = nbLikes;
