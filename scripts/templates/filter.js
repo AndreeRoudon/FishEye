@@ -1,11 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () {
+// creer une fonction filter avec en parametre medias
+function selectOptionSort(medias) {
     const trigger = document.querySelector(".filter-select__trigger");
     const options = document.querySelector(".filter-select__options");
     const optionLinks = document.querySelectorAll(".filter-option");
-    let currentSortCriteria = "Popularité"; // Par défaut, trier par popularité
 
+    let currentSortCriteria = "Popularité"; // Par défaut, trier par popularité
     // Appeler la fonction de tri initial
     sortMedia(currentSortCriteria);
+
+    // Fonction pour trier les médias en fonction des critères sélectionnés
+    function sortMedia(criteria) {
+        if (criteria === "Titre") {
+            medias.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (criteria === "Popularité") {
+            medias.sort((a, b) => b.likes - a.likes);
+        } else if (criteria === "Date") {
+            medias.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+        displayMediaGallery(medias);
+    }
 
     const arrow = document.querySelector(".arrow");
     // Fonction pour ouvrir ou fermer la liste déroulante
@@ -18,18 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
             arrow.style.transform = "rotate(135deg)";
             arrow.style.bottom = "3px";
         }
-    }
-
-    // Fonction pour trier les médias en fonction des critères sélectionnés
-    function sortMedia(criteria) {
-        if (criteria === "Titre") {
-            medias.sort((a, b) => a.title.localeCompare(b.title));
-        } else if (criteria === "Popularité") {
-            medias.sort((a, b) => b.likes - a.likes);
-        } else if (criteria === "Date") {
-            medias.sort((a, b) => new Date(b.date) - new Date(a.date));
-        }
-        displayMediaGallery(medias);
     }
 
     // Gestionnaire d'événement pour le clic sur l'élément déclencheur
@@ -75,5 +76,4 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleOptions();
         }
     });
-});
-
+}

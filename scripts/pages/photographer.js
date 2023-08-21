@@ -14,6 +14,7 @@ async function getPhotographerDetails() {
   photographerInfo(photographer);
   displayMediaGallery(medias);
   displayLikesCount(medias);
+  selectOptionSort(medias);
 }
 
 /***************************************************************************************/
