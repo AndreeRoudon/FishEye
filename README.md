@@ -1,6 +1,5 @@
-# Base de code du projet P6 - Parcours Front-end
+Projet FishEye : Créez un site accessible pour une plateforme de photographes
 
-## Démarrer le projet
+Développé en juillet et août 2023.
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux.

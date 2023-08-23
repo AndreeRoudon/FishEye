@@ -8,9 +8,11 @@ function photographerTemplate(data) {
         const link = document.createElement('a');
         const img = document.createElement('img');
         img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
+
         link.setAttribute('href', `photographer.html?id=${data.id}`);
         link.appendChild(img);
-        
+
         const h2 = document.createElement('h2');
         h2.textContent = name;
 
@@ -28,7 +30,7 @@ function photographerTemplate(data) {
         article.appendChild(localisation);
         article.appendChild(paragraph);
         article.appendChild(Price);
-        return article; 
+        return article;
     }
     return { name, picture, country, city, tagline, price, getUserCardDOM }
 }
