@@ -1,4 +1,4 @@
-
+/* global selectOptionSort */
 let medias = [];
 
 async function getPhotographerDetails() {
@@ -76,16 +76,6 @@ function displayMediaGallery(media) {
       openLightbox(media, index);
     });
   });
-}
-
-function displayLightBox() {
-  const lightBox = document.querySelector(".bg-box");
-  lightBox.style.display = "block";
-}
-
-function closelightBox() {
-  const lightBox = document.querySelector(".bg-box");
-  lightBox.style.display = "none";
 }
 
 //Fonction pour la création de chaque image
@@ -171,6 +161,16 @@ function createMediaElement(media, index) {
 }
 
 /*****************************************************************************************/
+
+function displayLightBox() {
+  const lightBox = document.querySelector(".bg-box");
+  lightBox.style.display = "block";
+}
+
+function closelightBox() {
+  const lightBox = document.querySelector(".bg-box");
+  lightBox.style.display = "none";
+}
 
 // Ouverture de la lightBox
 function openLightbox(media, startIndex) {
